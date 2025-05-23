@@ -32,3 +32,9 @@ PROVA PRÁTICA - TRAY - LWSA
 - [ ] Implementar validação dos dados enviados;
 - [ ] Implementar uso de cache e fila
 - [ ] Implementar uso de TypeScript
+
+### Outros
+
+- [ ] Documentar start
+- [ ] Cache dos arquivos/rotas
+- [ ] Configurar PHPStan, Infection
