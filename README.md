@@ -38,3 +38,4 @@ PROVA PRÁTICA - TRAY - LWSA
 - [ ] Documentar start
 - [ ] Cache dos arquivos/rotas
 - [ ] Configurar PHPStan, Infection
+- [ ] Money
