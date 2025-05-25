@@ -2,10 +2,14 @@
 
 namespace App\Providers;
 
+use App\Repository\Financeiro\FinanceiroRepository;
+use App\Repository\Interfaces\Financeiro\FinanceiroRepositoryInterface;
 use App\Repository\Interfaces\Vendas\VendasRepositoryInterface;
 use App\Repository\Interfaces\Vendedor\VendedorRepositoryInterface;
 use App\Repository\Vendas\VendasRepository;
 use App\Repository\Vendedor\VendedorRepository;
+use App\Services\Financeiro\FinanceiroService;
+use App\Services\Interfaces\Financeiro\FinanceiroInterface;
 use App\Services\Interfaces\Vendas\VendasServiceInterface;
 use App\Services\Interfaces\Vendedor\VendedorServiceInterface;
 use App\Services\Vendas\VendasService;
@@ -24,6 +28,9 @@ class AppServiceProvider extends ServiceProvider
 
         $this->app->singleton(VendasRepositoryInterface::class, VendasRepository::class);
         $this->app->singleton(VendasServiceInterface::class, VendasService::class);
+
+        $this->app->singleton(FinanceiroRepositoryInterface::class, FinanceiroRepository::class);
+        $this->app->singleton(FinanceiroInterface::class, FinanceiroService::class);
     }
 
     /**
