@@ -17,14 +17,9 @@ class FinanceiroService implements FinanceiroInterface
         return $this->financeiro->getVendasPorVendedor($vendedorId);
     }
 
-    public function getTotalVendas()
+    public function getTotalComissao()
     {
-        return $this->financeiro->getTotalVendas();
-    }
-
-    public function getTotalComissao(int $vendedorId)
-    {
-        return $this->financeiro->getTotalComissao($vendedorId);
+        return $this->financeiro->getTotalComissao();
     }
 
 }

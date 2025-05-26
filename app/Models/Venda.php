@@ -24,7 +24,7 @@ class Venda extends Model
 
     public function valorDaComissao()
     {
-        return ($this->valor * Venda::COMISSAO)/100;
+        return ($this->valor * Venda::COMISSAO) / 100;
     }
 
     public function vendedor(): BelongsTo

@@ -1,0 +1,22 @@
+{
+    "$schema": "vendor/infection/infection/resources/schema.json",
+    "source": {
+        "directories": [
+            "app/Models",
+            "app/Services"
+        ]
+    },
+    "logs": {
+        "text": "tests/report/infection/infection.log",
+        "html": "tests/report/infection/infection.html",
+        "summary": "tests/report/infection/summary.log",
+        "json": "tests/report/infection/infection-log.json",
+        "perMutator": "tests/report/infection/per-mutator.md"
+    },
+    "phpUnit": {
+        "customPath": "vendor/bin/phpunit"
+    },
+    "mutators": {
+        "@default": true
+    }
+}

@@ -11,10 +11,9 @@ use App\Services\Interfaces\Vendas\VendasServiceInterface as VendasService;
 class VendaController extends Controller
 {
     public function __construct(
-        public readonly VendasService $vendas, 
+        public readonly VendasService $vendas,
         public readonly FinanceiroInterface $financeiro
-    )
-    {
+    ) {
 
     }
 

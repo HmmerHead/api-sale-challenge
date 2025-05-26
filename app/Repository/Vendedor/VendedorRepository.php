@@ -2,6 +2,7 @@
 
 namespace App\Repository\Vendedor;
 
+use App\Dto\VendedorDTO;
 use App\Models\Vendedor;
 use App\Repository\Interfaces\Vendedor\VendedorRepositoryInterface;
 
@@ -9,7 +10,8 @@ class VendedorRepository implements VendedorRepositoryInterface
 {
     public function getVendedor()
     {
-        return Vendedor::all();
+        $registros = Vendedor::all()->toArray();
+        return VendedorDTO::fromArray($registros);
     }
 
     public function storeVendedor(array $data)
@@ -17,6 +19,7 @@ class VendedorRepository implements VendedorRepositoryInterface
         return Vendedor::create([
             'nome' => $data['nome'],
             'email' => $data['email'],
+            'user_id' => $data['user_id'],
         ]);
     }
 
@@ -33,6 +36,8 @@ class VendedorRepository implements VendedorRepositoryInterface
 
     public function showVendedor(int $id)
     {
-        return Vendedor::find($id);
+        $registros =  Vendedor::find($id)->toArray();
+
+        return new VendedorDTO($registros)->toArray();
     }
 }

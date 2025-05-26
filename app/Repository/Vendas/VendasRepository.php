@@ -2,6 +2,7 @@
 
 namespace App\Repository\Vendas;
 
+use App\Dto\VendaDTO;
 use App\Models\Venda;
 use App\Repository\Interfaces\Vendas\VendasRepositoryInterface;
 
@@ -9,7 +10,8 @@ class VendasRepository implements VendasRepositoryInterface
 {
     public function getVendas()
     {
-        return Venda::with('vendedor')->get()->toArray();
+        $registros = Venda::with('vendedor')->get()->toArray();
+        return VendaDTO::fromArray($registros);
     }
 
     public function storeVendas(array $data)
@@ -17,7 +19,7 @@ class VendasRepository implements VendasRepositoryInterface
         return Venda::create([
             'vendedor_id' => $data['vendedor_id'],
             'valor' => $data['valor'],
-            'valorComissao' => (new Venda)->valorDaComissao(),
+            'valorComissao' => (new Venda())->valorDaComissao(),
             'data_da_venda' => $data['data_da_venda']
         ]);
     }
@@ -28,7 +30,7 @@ class VendasRepository implements VendasRepositoryInterface
             ->update([
                 'vendedor_id' => $data['vendedor_id'],
                 'valor' => $data['valor'],
-                'valorComissao' => (new Venda)->valorDaComissao(),
+                'valorComissao' => (new Venda())->valorDaComissao(),
                 'data_da_venda' => $data['data_da_venda']
             ]);
     }
@@ -40,6 +42,8 @@ class VendasRepository implements VendasRepositoryInterface
 
     public function showVendas(int $id)
     {
-        return Venda::with('vendedor')->find($id);
+        $registros = Venda::with('vendedor')->find($id)->toArray();
+
+        return new VendaDTO($registros)->toArray();
     }
 }
