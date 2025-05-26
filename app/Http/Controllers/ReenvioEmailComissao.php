@@ -25,6 +25,6 @@ class ReenvioEmailComissao extends Controller
         $vendedor = $this->vendedor->showVendedor($request->get('id'));
         $vendasComissao = $this->financeiroVendas->getTotalComissao();
 
-        Mail::to($vendedor->email)->send(new VendasDoDia($vendasComissao));
+        Mail::to($vendedor['email'])->send(new VendasDoDia($vendasComissao));
     }
 }

@@ -2,9 +2,7 @@
 
 namespace App\Mail\Financeiro\Administrador;
 
-use App\Services\Interfaces\Financeiro\FinanceiroInterface;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
@@ -39,7 +37,7 @@ class VendasDoDia extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'email.financeiro.administrador.relatorio_vendedor'
+            view: 'email.financeiro.administrador.relatorio_comissao'
         );
     }
 
